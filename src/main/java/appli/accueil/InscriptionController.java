@@ -1,5 +1,6 @@
 package appli.accueil;
 
+import appli.StartApplication;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -7,7 +8,10 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
+import java.io.IOException;
+
 public class InscriptionController {
+
 
     @FXML
     private Button connexion;
@@ -37,16 +41,30 @@ public class InscriptionController {
     private TextField nomText;
 
     @FXML
-    private Label welcomeText;
+    private Label prenom;
 
     @FXML
-    void onHelloButtonClickConnexion(ActionEvent event) {
+    private TextField prenomText;
 
+    @FXML
+    private Label welcomeText;
+
+
+    @FXML
+    void onHelloButtonClickConnexion(ActionEvent event) throws IOException {
+            StartApplication.changeScene("accueil/Login");
     }
 
     @FXML
     void onHelloButtonClickInscription(ActionEvent event) {
-
+        nomText.getText();
+        prenomText.getText();
+        mdpTexte.getText();
+        emailText.getText();
+        System.out.println(emailText.getText());
+        System.out.println(mdpTexte.getText());
+        System.out.println(nomText.getText());
+        System.out.println(prenomText.getText());
     }
 
 }
