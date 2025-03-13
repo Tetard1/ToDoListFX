@@ -65,6 +65,14 @@ public class InscriptionController {
         System.out.println(mdpTexte.getText());
         System.out.println(nomText.getText());
         System.out.println(prenomText.getText());
+
+        if (!emailText.equals(email.getText()) || !mdpTexte.equals(mdp.getText()) || !nomText.equals(nom.getText()) || !prenomText.equals(prenom.getText())) {
+            erreur.setText("veuillez rentrer toute les informations");
+
+        } else {
+            erreur.setText(" ");
+            System.out.println("Inscription réussi");
+        }
     }
 
 }

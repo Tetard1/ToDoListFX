@@ -45,12 +45,15 @@ public class LoginController {
         emailText.getText();
         System.out.println(emailText.getText());
         System.out.println(mdpTexte.getText());
-        erreur.setVisible(false);
-        if (mdpTexte.getText().equals("") || emailText.getText().equals("")) {
-            erreur.setVisible(true);
-            erreur.setText("Erreur de connexion");
-        }
+    if (!emailText.equals(email.getText()) || !mdpTexte.equals(mdp.getText())) {
+        erreur.setText("email ou mdp incorrect");
+
     }
+        else {
+        erreur.setText(" ");
+        System.out.println("Connexion réussi");
+    }
+}
 
     @FXML
     void onHelloButtonClickInscription(ActionEvent event) throws IOException {
