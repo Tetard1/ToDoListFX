@@ -27,6 +27,8 @@
     <TextField fx:id="emailText" />
     <Label fx:id="mdp" text="Votre mot de passe : " />
     <PasswordField fx:id="mdpTexte" />
+   <Label fx:id="mdpconfirmer" text="Confirmer le mot de passe :" />
+   <PasswordField fx:id="mdpconfirmerTexte" />
     <Label fx:id="erreur" textFill="RED" />
     <Button fx:id="inscription" onAction="#onHelloButtonClickInscription" text="Inscription" />
     <Button fx:id="connexion" onAction="#onHelloButtonClickConnexion" text="Connexion" />

@@ -7,10 +7,15 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import repository.UtilisateurRepository;
+import model.Utilisateur;
 
 import java.io.IOException;
 
 public class LoginController {
+
+    private UtilisateurRepository utilisateurRepository = new UtilisateurRepository();
 
     @FXML
     private Button connexion;
@@ -43,17 +48,20 @@ public class LoginController {
     void onHelloButtonClickConnexion(ActionEvent event) {
         mdpTexte.getText();
         emailText.getText();
-        System.out.println(emailText.getText());
-        System.out.println(mdpTexte.getText());
-    if (!emailText.equals(email.getText()) || !mdpTexte.equals(mdp.getText())) {
-        erreur.setText("email ou mdp incorrect");
+        if (emailText.getText().isEmpty() || mdpTexte.getText().isEmpty()) {
+            erreur.setText("Veuillez remplir tous les champs !");
+            return;
+        }
+        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+        Utilisateur utilisateur = utilisateurRepository.getUtilisateurParEmail(emailText.getText());
+        if (utilisateur != null && encoder.matches(mdpTexte.getText(), utilisateur.getMotDePasse()))
 
+        {
+            System.out.println("Connexion réussie !");
+        } else {
+            erreur.setText("Email ou mot de passe incorrect !");
+        }
     }
-        else {
-        erreur.setText(" ");
-        System.out.println("Connexion réussi");
-    }
-}
 
     @FXML
     void onHelloButtonClickInscription(ActionEvent event) throws IOException {

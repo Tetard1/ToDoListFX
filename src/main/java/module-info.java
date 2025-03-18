@@ -2,6 +2,8 @@ module appli {
     requires javafx.controls;
     requires javafx.fxml;
     requires java.desktop;
+    requires java.sql;
+    requires spring.security.crypto;
 
 
     opens appli to javafx.fxml;
