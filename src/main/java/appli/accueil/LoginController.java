@@ -10,6 +10,7 @@ import javafx.scene.control.TextField;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import repository.UtilisateurRepository;
 import model.Utilisateur;
+import session.SessionUtilisateur;
 
 import java.io.IOException;
 
@@ -54,13 +55,18 @@ public class LoginController {
         }
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
         Utilisateur utilisateur = utilisateurRepository.getUtilisateurParEmail(emailText.getText());
-        if (utilisateur != null && encoder.matches(mdpTexte.getText(), utilisateur.getMotDePasse()))
-
-        {
-            System.out.println("Connexion réussie !");
+        if (utilisateur != null && encoder.matches(mdpTexte.getText(), utilisateur.getMotDePasse())) {
+            System.out.println("Connexion réussie pour : " + utilisateur.getNom());
+            SessionUtilisateur.getInstance().sauvegardeSession(utilisateur);
+            erreur.setVisible(false);
+            // Redirection possible vers une autre page 
         } else {
-            erreur.setText("Email ou mot de passe incorrect !");
+            System.out.println("Échec de la connexion. Email ou mot de passe incorrect.");
+            erreur.setText("Email ou mot de passe incorrect.");
+            erreur.setVisible(true);
         }
+
+
     }
 
     @FXML
@@ -70,6 +76,12 @@ public class LoginController {
     @FXML
     void onHelloButtonClickMdp(ActionEvent event) {
 
+    }
+    @FXML
+    protected void Deconneixon() {
+        SessionUtilisateur.getInstance().deconnecter();
+        System.out.println("Utilisateur déconnecté.");
+        // Redirection vers la page de connexion
     }
 
 
