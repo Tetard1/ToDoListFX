@@ -60,7 +60,7 @@ public class UtilisateurRepository {
 
             while (rs.next()) {
                 Utilisateur utilisateur = new Utilisateur(
-                        rs.getInt("id"),
+                        rs.getInt("id_utilisateur"),
                         rs.getString("nom"),
                         rs.getString("prenom"),
                         rs.getString("email"),
@@ -110,5 +110,6 @@ public class UtilisateurRepository {
             System.out.println("Erreur lors de la mise à jour de l'utilisateur : " + e.getMessage());
         }
     }
+
 
 }
