@@ -5,6 +5,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="appli.user.GestionUserController">
-    <TableView fx:id="tableauUser" layoutX="50" layoutY="50" prefHeight="300" prefWidth="500" />
+    <TableView fx:id="tableauUser" layoutX="50" layoutY="50" onMouseClicked="#onHelloClickMouse" prefHeight="300" prefWidth="500" />
    <Button fx:id="disable" disable="true" layoutX="274.0" layoutY="350.0" mnemonicParsing="false" onAction="#onHelloButtonClickDisable" text="supprimer" />
 </AnchorPane>

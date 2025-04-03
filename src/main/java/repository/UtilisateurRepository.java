@@ -83,8 +83,7 @@ public class UtilisateurRepository {
             //int rowsDeleted = stmt.executeUpdate();
             stmt.executeUpdate();
             //debut verif
-            String verif="";
-            String sql2 = "SELECT * FROM utilisateur WHERE email = ?";
+            String verif = "SELECT * FROM utilisateur WHERE email = ?";
             PreparedStatement stmtverif = cnx.prepareStatement(verif);
             stmtverif.setString(1, email);
             ResultSet rs = stmtverif.executeQuery();
@@ -102,14 +101,13 @@ public class UtilisateurRepository {
     }
 
     public void mettreAJourUtilisateur(Utilisateur utilisateur) {
-        String sql = "UPDATE utilisateur SET nom = ?, prenom = ?, mot_de_passe = ?, role = ? WHERE email = ?";
+        String sql = "UPDATE utilisateur SET nom = ?, prenom = ?,email = ? WHERE id_utilisateur = ?";
         try {
             PreparedStatement stmt = cnx.prepareStatement(sql);
             stmt.setString(1, utilisateur.getNom());
             stmt.setString(2, utilisateur.getPrenom());
-            stmt.setString(3, utilisateur.getMotDePasse());
-            stmt.setString(4, utilisateur.getRole());
-            stmt.setString(5, utilisateur.getEmail());
+            stmt.setString(3, utilisateur.getEmail());
+            stmt.setInt(4, utilisateur.getIdUtilisateur());
             int rowsUpdated = stmt.executeUpdate();
             if (rowsUpdated > 0) {
                 System.out.println("Utilisateur mis à jour avec succès !");

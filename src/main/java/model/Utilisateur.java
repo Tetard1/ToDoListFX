@@ -9,6 +9,8 @@ public class Utilisateur {
     private String motDePasse;
     private String role;
 
+
+
     public int getIdUtilisateur() {
         return idUtilisateur;
     }
@@ -72,6 +74,13 @@ public class Utilisateur {
         this.email = email;
         this.role = role;
         this.motDePasse = motDePasse;
+    }
+    public Utilisateur(int idUtilisateur,String nom, String prenom, String email) {
+        this.idUtilisateur = idUtilisateur;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.email = email;
+
     }
 
     public Utilisateur(String email, String motDePasse) {
