@@ -14,7 +14,7 @@ public class StartApplication extends Application {
     public void start(Stage stage) throws IOException {
         mainStage = stage;
         FXMLLoader fxmlLoader = new FXMLLoader(StartApplication.class.getResource("accueil/InscriptionView.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
+        Scene scene = new Scene(fxmlLoader.load());
         mainStage.setTitle("Hello!");
         mainStage.setScene(scene);
         mainStage.show();

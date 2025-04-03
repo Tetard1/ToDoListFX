@@ -46,7 +46,7 @@ public class LoginController {
     private Label welcomeText;
 
     @FXML
-    void onHelloButtonClickConnexion(ActionEvent event) {
+    void onHelloButtonClickConnexion(ActionEvent event) throws IOException {
         mdpTexte.getText();
         emailText.getText();
         if (emailText.getText().isEmpty() || mdpTexte.getText().isEmpty()) {
@@ -59,7 +59,7 @@ public class LoginController {
             System.out.println("Connexion réussie pour : " + utilisateur.getNom());
             SessionUtilisateur.getInstance().sauvegardeSession(utilisateur);
             erreur.setVisible(false);
-            // Redirection possible vers une autre page 
+            StartApplication.changeScene("accueil/Accueil");
         } else {
             System.out.println("Échec de la connexion. Email ou mot de passe incorrect.");
             erreur.setText("Email ou mot de passe incorrect.");

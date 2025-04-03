@@ -57,7 +57,7 @@ public class Utilisateur {
         this.motDePasse = motDePasse;
     }
 
-    public Utilisateur(int idUtilisateur, String role, String motDePasse, String email, String prenom, String nom) {
+    public Utilisateur(int idUtilisateur,  String nom, String prenom,String email,String motDePasse, String role) {
         this.idUtilisateur = idUtilisateur;
         this.role = role;
         this.motDePasse = motDePasse;
