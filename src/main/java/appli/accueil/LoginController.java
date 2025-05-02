@@ -74,8 +74,8 @@ public class LoginController {
         StartApplication.changeScene("accueil/Inscription");
     }
     @FXML
-    void onHelloButtonClickMdp(ActionEvent event) {
-
+    void onHelloButtonClickMdp(ActionEvent event) throws IOException {
+        StartApplication.changeScene("accueil/MotDePasseOublie");
     }
     @FXML
     protected void Deconneixon() {

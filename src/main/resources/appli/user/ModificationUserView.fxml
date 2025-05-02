@@ -15,4 +15,5 @@
     <TextField fx:id="emailTextModif" />
     <Label fx:id="erreurModif" textFill="RED" />
     <Button fx:id="modification" onAction="#onHelloButtonClickModification" text="Modification" />
+   <Button fx:id="mdpoublie" mnemonicParsing="false" onAction="#onHelloButtonClickMdpoublie" text="Mot de passe oublier ?" />
 </VBox>

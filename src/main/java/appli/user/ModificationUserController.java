@@ -29,6 +29,9 @@ public class ModificationUserController {
     private Label erreurModif;
 
     @FXML
+    private Button mdpoublie;
+
+    @FXML
     private Button modification;
 
     @FXML
@@ -51,9 +54,12 @@ public class ModificationUserController {
         emailTextModif.setText(utilisateur.getEmail());
     }
 
-
     @FXML
-    void onHelloButtonClickModification(ActionEvent event) {
+    void onHelloButtonClickMdpoublie(ActionEvent event) throws IOException {
+        StartApplication.changeScene("accueil/MotDePasseOublie");
+    }
+    @FXML
+    void onHelloButtonClickModification(ActionEvent event) throws IOException {
         nomTextModif.getText();
         prenomTextModif.getText();
         emailTextModif.getText();
@@ -67,6 +73,5 @@ public class ModificationUserController {
 
         Utilisateur nouvelUtilisateur = new Utilisateur(utilisateurSel.getIdUtilisateur(), nomTextModif.getText(), prenomTextModif.getText(), emailTextModif.getText());
         utilisateurRepository.mettreAJourUtilisateur(nouvelUtilisateur);
-        System.out.println("Inscription réussie !");
     }
 }

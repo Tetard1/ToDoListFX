@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="CENTER" spacing="15.0" xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml" fx:controller="appli.accueil.ChangerMotDePasseController">
+    <Label text="Changer le mot de passe" style="-fx-font-size: 18;" />
+    <PasswordField fx:id="passwordField" promptText="Nouveau mot de passe" />
+    <PasswordField fx:id="confirmPasswordField" promptText="Confirmer le mot de passe" />
+    <Button text="Valider" onAction="#validerMotDePasse" />
+</VBox>

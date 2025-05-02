@@ -4,6 +4,7 @@ module appli {
     requires java.desktop;
     requires java.sql;
     requires spring.security.crypto;
+    requires java.mail;
 
     opens  model to javafx.fxml, javafx.base;
     exports model to javafx.fxml, javafx.base;
